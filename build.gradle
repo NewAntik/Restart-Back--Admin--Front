@@ -18,9 +18,9 @@ repositories {
 	// Add GitHub Packages repository
 	maven {
 		name = "GitHubPackages"
-		url = uri("https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front")
+		url = "${URL}"
 		credentials {
-			username = "NewAntik"
+			username = "${NAME}"
 			password = ${PAT}
 		}
 	}
@@ -37,9 +37,9 @@ publishing {
 	repositories {
 		maven {
 			name = "GitHubPackages"
-			url = uri("https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front")
+			url = "${URL}"
 			credentials {
-				username = "NewAntik"
+				username = "${NAME}"
 				password = ${PAT}
 			}
 		}
