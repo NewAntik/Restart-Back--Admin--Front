@@ -17,16 +17,16 @@ jobs:
         run: echo "Hello, world!" > test.txt
 
       - name: Setup JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
 
       - name: Build and publish to GitHub Packages
+        run: |
+          ./gradlew publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGES_URL: ${{ secrets.PACKAGES_URL }}
           NAME: ${{ secrets.NAME }}
           PAT: ${{ secrets.PAT }}
-        run: |
-          ./gradlew publish
+
