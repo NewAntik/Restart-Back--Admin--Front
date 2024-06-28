@@ -21,4 +21,4 @@ jobs:
            -H "Authorization: token $GITHUB_TOKEN" \
            -H "Accept: application/vnd.github.v3+json" \
            --data-binary @test.txt \
-           "https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front/packages"
+           "https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front/test.txt"

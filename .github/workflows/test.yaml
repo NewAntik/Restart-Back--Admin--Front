@@ -13,6 +13,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Append GitHub Package Authentication to gradle.properties
+        run: |
+          echo "github_package_username=${{ secrets.NAME }}" >> ~/.gradle/gradle.properties
+          echo "github_package_token=${{ secrets.PAT }}" >> ~/.gradle/gradle.properties
+          echo "github_package_Url=${{ secrets.PACKAGES_URL }}" >> ~/.gradle/gradle.properties
+
       - name: Create test.txt
         run: echo "Hello, world!" > test.txt
 
