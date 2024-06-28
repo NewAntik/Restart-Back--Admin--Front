@@ -15,10 +15,10 @@ jobs:
 
       - name: Upload to GitHub Packages
         env:
-          PAT: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl -X PUT \
-           -H "Authorization: token $PAT" \
+           -H "Authorization: token $GITHUB_TOKEN" \
            -H "Accept: application/vnd.github.v3+json" \
            --data-binary @test.txt \
            "https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front/test.txt"
