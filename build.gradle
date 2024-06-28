@@ -18,11 +18,11 @@ repositories {
 	mavenCentral()
 	// Add GitHub Packages repository
 	maven {
-		name = "GitHubPackages"
-		url = System.getenv("PACKAGES_URL")
+		name "GithubPackage"
+		url "${github_package_Url}"
 		credentials {
-			username = System.getenv("NAME")
-			password = System.getenv("PAT")
+			username "${github_package_username}"
+			password "${github_package_token}"
 		}
 	}
 }
@@ -30,11 +30,11 @@ repositories {
 publishing {
 	repositories {
 		maven {
-			name = "GitHubPackages"
-			url = System.getenv("PACKAGES_URL")
+			name "GithubPackage"
+			url "${github_package_Url}"
 			credentials {
-				username = System.getenv("NAME")
-				password = System.getenv("PAT")
+				username "${github_package_username}"
+				password "${github_package_token}"
 			}
 		}
 	}
