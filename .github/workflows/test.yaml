@@ -13,6 +13,13 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Restore gradle.properties
+        shell: bash
+        run: |
+          mkdir -p ~/.gradle/
+          echo "GRADLE_USER_HOME=${HOME}/.gradle" >> $GITHUB_ENV
+          echo "${GRADLE_PROPERTIES}" > ~/.gradle/gradle.properties
+
       - name: Append GitHub Package Authentication to gradle.properties
         run: |
           echo "github_package_username=${{ secrets.NAME }}" >> ~/.gradle/gradle.properties
