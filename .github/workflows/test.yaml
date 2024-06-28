@@ -1,27 +1,23 @@
-name: Publish File to GitHub Packages
+name: Upload File to GitHub Packages
 
 on:
   workflow_dispatch:  # Triggered manually
 
 jobs:
-  publish:
+  upload:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Create test.txt
         run: echo "Hello, world!" > test.txt
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '14'  # Adjust to your Node.js version
-
-      - name: Publish to GitHub Packages
+      - name: Upload to GitHub Packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > ~/.npmrc
-          echo "registry=https://npm.pkg.github.com/NewAntik/Restart-Back--Admin--Front" >> ~/.npmrc
-          npm publish test.txt --access public
+          curl -X PUT \
+            -T test.txt \
+            -u $GITHUB_TOKEN:x-oauth-basic \
+            "https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front/test.txt"
