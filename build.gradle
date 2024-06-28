@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.1'
 	id 'io.spring.dependency-management' version '1.1.5'
+	id 'maven-publish'
 }
 
 group = 'ngo.restart.task'
@@ -24,9 +25,6 @@ repositories {
 			password = project.findProperty("gpr.token") ?: System.getenv("PAT")
 		}
 	}
-}
-plugins {
-	id("maven-publish")
 }
 
 publishing {
