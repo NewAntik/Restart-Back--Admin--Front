@@ -18,6 +18,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl -X PUT \
-            -T test.txt \
-            -u $GITHUB_TOKEN:x-oauth-basic \
-            "https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front/test.txt"
+           -H "Authorization: token $GITHUB_TOKEN" \
+           -H "Accept: application/vnd.github.v3+json" \
+           --data-binary @test.txt \
+           "https://maven.pkg.github.com/<USERNAME>/<REPOSITORY>/com/example/test.txt"
