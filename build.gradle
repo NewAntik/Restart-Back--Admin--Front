@@ -18,10 +18,10 @@ repositories {
 	// Add GitHub Packages repository
 	maven {
 		name = "GitHubPackages"
-		url = "${URL}"
+		url = project.findProperty("PACKAGES_URL") ?: System.getenv("PACKAGES_URL")
 		credentials {
-			username = "${NAME}"
-			password = ${PAT}
+			username = project.findProperty("gpr.user") ?: System.getenv("NAME")
+			password = project.findProperty("gpr.token") ?: System.getenv("PAT")
 		}
 	}
 }
@@ -35,8 +35,8 @@ publishing {
 			name = "GitHubPackages"
 			url = "${PACKAGES_URL}"
 			credentials {
-				username = "${NAME}"
-				password = ${PAT}
+				username = project.findProperty("gpr.user") ?: System.getenv("NAME")
+				password = project.findProperty("gpr.token") ?: System.getenv("PAT")
 			}
 		}
 	}
