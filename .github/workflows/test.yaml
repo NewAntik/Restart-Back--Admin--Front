@@ -1,0 +1,30 @@
+name: Publish test.txt to GitHub Packages
+
+on:
+  workflow_dispatch:  # This triggers the workflow manually
+
+jobs:
+  publish-to-packages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Create a test.txt file in the root directory
+      - name: Create test.txt file
+        run: echo "creating test file" > test.txt
+
+      # Publish the newly created file to GitHub Packages
+      - name: Publish test.txt to GitHub Packages
+        run: |
+          echo "Publishing test.txt to GitHub Packages"
+          
+          echo "test file content" > test.txt
+          
+          curl -X PUT \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Content-Type: application/json" \
+            -d '{"name": "test.txt", "content": "'$(base64 test.txt)'" }' \
+            https://api.github.com/repos/NewAntik/Restart-Back--Admin--Front/packages/test.txt
