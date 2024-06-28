@@ -31,7 +31,7 @@ publishing {
 	repositories {
 		maven {
 			name = "GitHubPackages"
-			url = "${PACKAGES_URL}"
+			url = System.getenv("PACKAGES_URL")
 			credentials {
 				username = System.getenv("NAME")
 				password = System.getenv("PAT")
