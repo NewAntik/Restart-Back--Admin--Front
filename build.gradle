@@ -25,23 +25,24 @@ repositories {
 		}
 	}
 }
+plugins {
+	id("maven-publish")
+}
 
 publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-			artifactId = 'your-artifact-id'  // Replace with your artifact ID
-		}
-	}
-
 	repositories {
 		maven {
 			name = "GitHubPackages"
-			url = "${URL}"
+			url = "${PACKAGES_URL}"
 			credentials {
 				username = "${NAME}"
 				password = ${PAT}
 			}
+		}
+	}
+	publications {
+		gpr(MavenPublication) {
+			from(components.java)
 		}
 	}
 }

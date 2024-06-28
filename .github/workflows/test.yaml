@@ -1,34 +1,24 @@
-name: Publish test.txt to GitHub Packages
+name: Publish File to GitHub Packages
 
 on:
-  workflow_dispatch:  # This triggers the workflow manually
+  push:
+    branches:
+      - main  # Adjust as per your branch
 
 jobs:
-  publish-to-packages:
+  publish:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Create a test.txt file in the root directory
-      - name: Create test.txt file
-        run: echo "creating test file" > test.txt
+      - name: Create test.txt
+        run: echo "Hello, world!" > test.txt
 
-      # Publish the newly created file to GitHub Packages
-      - name: Publish test.txt to GitHub Packages
+      - name: Publish to GitHub Packages
         env:
-          PACKAGE_URL: ${{ secrets.URL }}
-          PACKAGE_PAT: ${{ secrets.PAT }}
-          PACKAGE_NAME: ${{ secrets.NAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Publishing test.txt to GitHub Packages"
-          
-          echo "test file content" > test.txt
-          
-          curl -X PUT \
-            -H "Authorization: token $PACKAGE_PAT" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Content-Type: application/json" \
-            -d '{"name": "test.txt", "content": "'$(base64 test.txt)'" }' \
-            https://api.github.com/repos/NewAntik/Restart-Back--Admin--Front/packages/test.txt
+          echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > ~/.npmrc
+          echo "registry=https://npm.pkg.github.com/NewAntik/Restart-Back--Admin--Front" >> ~/.npmrc
+          npm publish --access public
