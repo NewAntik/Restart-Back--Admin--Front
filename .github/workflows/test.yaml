@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Create test.txt
         run: echo "Hello, world!" > test.txt
@@ -21,4 +21,4 @@ jobs:
            -H "Authorization: token $GITHUB_TOKEN" \
            -H "Accept: application/vnd.github.v3+json" \
            --data-binary @test.txt \
-            "https://github.com/NewAntik/Restart-Back--Admin--Front/test.txt"
+            "https://maven.pkg.github.com/NewAntik/Restart-Back--Admin--Front/test.txt"
