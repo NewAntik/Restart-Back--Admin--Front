@@ -28,6 +28,11 @@ repositories {
 }
 
 publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifact bootJar
+		}
+	}
 	repositories {
 		maven {
 			name "GithubPackage"
