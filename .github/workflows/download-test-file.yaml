@@ -1,4 +1,4 @@
-name: Upload test file
+name: Download test file
 
 on:
   workflow_dispatch:
