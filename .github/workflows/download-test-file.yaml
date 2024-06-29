@@ -16,17 +16,12 @@ jobs:
           name: test-file
           path: test.txt
 
-      - uses: actions/download-artifact@v4
-      - name: Display structure of downloaded files
-        run: ls -R
-#    steps:
+      - name: Download logs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: test-file
+          path: ./test-file
 
-#      - name: Download logs artifact
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: test.txt
-#          path: .
-
-#      - name: Read the log file
-#        run: |
-#          tail -n ${{ github.event.inputs.lines }} test.txt
+      - name: Read the log file
+        run: |
+          tail -n ${{ github.event.inputs.lines }} ./test-file/test.txt
