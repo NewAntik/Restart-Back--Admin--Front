@@ -12,8 +12,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: test-file
-          path: ls -R
+          path: .
 
-#      - name: Read the log file
-#        run: |
-#          tail -n ${{ github.event.inputs.lines }} test.txt
+      - name: Read the log file
+        run: |
+          tail -n ${{ github.event.inputs.lines }} test-file
