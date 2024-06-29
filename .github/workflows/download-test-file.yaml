@@ -1,0 +1,19 @@
+name: Upload test file
+
+on:
+  workflow_dispatch:
+
+jobs:
+  get-and-upload-logs:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Download logs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: test-file
+          path: .
+
+      - name: Read the log file
+        run: |
+          tail -n ${{ github.event.inputs.lines }} test.txt

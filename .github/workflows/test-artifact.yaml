@@ -15,13 +15,3 @@ jobs:
         with:
           name: test-file
           path: test.txt
-
-#      - name: Download logs artifact
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: test-file
-#          path: .
-#
-#      - name: Read the log file
-#        run: |
-#          tail -n ${{ github.event.inputs.lines }} test.txt
