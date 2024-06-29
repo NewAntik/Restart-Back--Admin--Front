@@ -7,14 +7,6 @@ jobs:
   get-and-upload-logs:
     runs-on: ubuntu-latest
     steps:
-      - name: Create test.txt
-        run: echo "Hello, world!" > test.txt
-
-      - name: Upload logs
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-file
-          path: test.txt
 
       - name: Download logs artifact
         uses: actions/download-artifact@v4
@@ -22,6 +14,5 @@ jobs:
           name: test-file
           path: ./test-file
 
-      - name: Read the log file
-        run: |
-          tail -n ${{ github.event.inputs.lines }} ./test-file/test.txt
+      - name: Read the entire log file
+        run: cat ./test-file/test.txt
