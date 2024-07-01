@@ -30,7 +30,8 @@ repositories {
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
-			artifact file('test.txt') {
+			artifact('test.txt') {
+				classifier = 'test'
 				extension 'txt'
 			}
 		}
