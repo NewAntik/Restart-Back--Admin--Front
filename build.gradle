@@ -30,9 +30,14 @@ repositories {
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
+			pom {
+				groupId = 'ngo.restart.task'
+				artifactId = 'test'
+				version = '0.0.1-SNAPSHOT'
+			}
 			artifact('test.txt') {
-				classifier = 'test'
-				extension 'txt'
+				classifier = ''
+				extension = 'txt'
 			}
 		}
 	}
