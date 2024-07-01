@@ -18,6 +18,9 @@ jobs:
         with:
           name: test-file
           path: ./new_path
+          workflow: upload-artifact.yaml
+          name_is_regexp: true
+          allow_forks: true
 
       - name: List files after download
         run: ls -al new_path
