@@ -5,26 +5,17 @@ on:
     workflows: ["Upload test file"]
     types:
       - completed
-    inputs:
-      run-id:
-        description: 'Run ID to download artifacts from'
-        required: true
-
-
 
 jobs:
   download-and-use-logs:
     runs-on: ubuntu-latest
     steps:
-      - name: Print working directory
-        run: pwd
 
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: AntonFile
-          path: .
-          run-id: ${{ github.event.inputs.run-id }}
+          path: AntonFile.txt
 
       - name: Read and use AntonFile.txt
         run: |
