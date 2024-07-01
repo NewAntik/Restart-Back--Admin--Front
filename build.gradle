@@ -31,14 +31,13 @@ publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			pom {
-				groupId = 'ngo.restart.task'
-				artifactId = 'test'
-				version = '0.0.1-SNAPSHOT'
+				groupId = 'restart.admin'
+				artifactId = 'restart.admin'
+				version = 'restart.admin'
 			}
-			artifact('test.txt') {
-				classifier = ''
-				extension = 'txt'
-			}
+//			artifact('test.txt') {
+//				extension = 'txt'
+//			}
 		}
 	}
 	repositories {
