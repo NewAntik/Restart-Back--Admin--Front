@@ -16,8 +16,8 @@ jobs:
           name: test-file
           path: ./
 
-      - name: Read and use test.txt
+      - name: Read and use test.zip
         run: |
-          content=$(cat test.txt)
+          content=$(cat test.zip)
           echo "Read content: $content"
-          echo "New file content based on test.txt: $content" > new_test.txt
+          echo "New file content based on test.txt: $content" > new_after_reading_test.zip
