@@ -28,13 +28,10 @@ repositories {
 }
 
 publishing {
-	publishing {
-		publications {
-			mavenJava(MavenPublication) {
-				from components.java
-				groupId = 'ngo.skarb'
-				artifactId = project.name
-				version = project.version
+	publications {
+		mavenJava(MavenPublication) {
+			artifact file('test.txt') {
+				extension 'txt'
 			}
 		}
 	}
@@ -46,11 +43,6 @@ publishing {
 				username "${github_package_username}"
 				password "${github_package_token}"
 			}
-		}
-	}
-	publications {
-		gpr(MavenPublication) {
-			from(components.java)
 		}
 	}
 }
