@@ -1,7 +1,10 @@
 name: Download test file
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Upload test file"]
+    types:
+      - completed
 
 jobs:
   download-and-use-logs:
@@ -14,8 +17,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: test
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: .
 
       - name: Read and use test.txt
         run: |
