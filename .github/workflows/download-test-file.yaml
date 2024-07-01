@@ -4,15 +4,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  get-and-upload-logs:
+  download-and-use-logs:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Download logs artifact
-        uses: actions/download-artifact@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v2
         with:
           name: test-file
-          path: ./test-file
+          path: ./
 
-      - name: Read the entire log file
-        run: cat ./test-file/test.txt
+      - name: Read and use test.txt
+        run: |
+          content=$(cat test.txt)
+          echo "Read content: $content"
+          echo "New file content based on test.txt: $content" > new_test.txt
