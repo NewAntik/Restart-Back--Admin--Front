@@ -7,14 +7,17 @@ jobs:
   get-and-upload-logs:
     runs-on: ubuntu-latest
     steps:
+      - name: Create directory
+        run: mkdir -p new_path
+
       - name: Create test.txt
-        run: echo "Hello, world!" > test.txt
+        run: echo "Hello, world!" > new_path/test.txt
 
       - name: List files
-        run: ls -al
+        run: ls -al new_path
 
       - name: Upload logs
         uses: actions/upload-artifact@v4
         with:
           name: test-file
-          path: test.txt
+          path: new_path/test.txt
