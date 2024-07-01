@@ -10,17 +10,14 @@ jobs:
       - name: Print working directory
         run: pwd
 
-      - name: Create directory
-        run: mkdir -p new_path
-
       - name: Create test.txt
-        run: echo "Hello, world!" > new_path/test.txt
+        run: echo "Hello, world!" > test.txt
 
       - name: List files
-        run: ls -al new_path
+        run: ls -al
 
       - name: Upload logs
         uses: actions/upload-artifact@v4
         with:
-          name: test-file
-          path: new_path/test.txt
+          name: test
+          path: test.txt

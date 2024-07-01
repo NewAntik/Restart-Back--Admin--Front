@@ -2,10 +2,6 @@ name: Download test file
 
 on:
   workflow_dispatch:
-    workflow_run:
-      workflows: [ "Upload test file" ]
-      types:
-        - completed
 
 jobs:
   download-and-use-logs:
@@ -13,9 +9,6 @@ jobs:
     steps:
       - name: Print working directory
         run: pwd
-
-      - name: List files
-        run: ls -al new_path
 
       - name: Download artifact
         uses: actions/download-artifact@v4
@@ -26,5 +19,5 @@ jobs:
 
       - name: Read and use test.txt
         run: |
-          content=$(cat new_path/test.txt)
+          content=$(cat test.txt)
           echo "Read content: $content"
