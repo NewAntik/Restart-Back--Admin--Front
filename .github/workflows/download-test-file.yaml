@@ -16,9 +16,10 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: test
+          name: AntonFile
+          path: .
 
-      - name: Read and use test.txt
+      - name: Read and use AntonFile.txt
         run: |
-          content=$(cat test.txt)
+          content=$(cat AntonFile.txt)
           echo "Read content: $content"
