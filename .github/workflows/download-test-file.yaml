@@ -2,11 +2,18 @@ name: Download test file
 
 on:
   workflow_dispatch:
+    workflow_run:
+      workflows: [ "Upload test file" ]
+      types:
+        - completed
 
 jobs:
   download-and-use-logs:
     runs-on: ubuntu-latest
     steps:
+      - name: Print working directory
+        run: pwd
+
       - name: List files
         run: ls -al new_path
 
@@ -16,8 +23,6 @@ jobs:
           name: test
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-
 
       - name: Read and use test.txt
         run: |

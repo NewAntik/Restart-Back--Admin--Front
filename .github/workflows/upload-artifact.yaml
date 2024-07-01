@@ -7,6 +7,9 @@ jobs:
   get-and-upload-logs:
     runs-on: ubuntu-latest
     steps:
+      - name: Print working directory
+        run: pwd
+
       - name: Create directory
         run: mkdir -p new_path
 
