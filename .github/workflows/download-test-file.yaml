@@ -7,17 +7,22 @@ jobs:
   download-and-use-logs:
     runs-on: ubuntu-latest
     steps:
-      - name: List files
+      - name: List files before download
         run: ls -al
 
+      - name: Print working directory
+        run: pwd
+
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: test-file
-          path: ./
+          path: ./new_path
 
-      - name: Read and use test.zip
+      - name: List files after download
+        run: ls -al new_path
+
+      - name: Read and use test.txt
         run: |
-          content=$(cat test.zip)
+          content=$(cat new_path/test.txt)
           echo "Read content: $content"
-          echo "New file content based on test.txt: $content" > new_after_reading_test.zip
