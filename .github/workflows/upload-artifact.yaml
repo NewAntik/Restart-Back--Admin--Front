@@ -21,3 +21,6 @@ jobs:
         with:
           name: AntonFile
           path: AntonFile.txt
+
+      - name: Output run-id
+        run: echo "run-id=$GITHUB_RUN_ID" >> $GITHUB_ENV
