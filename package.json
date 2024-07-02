@@ -1,3 +1,4 @@
+
 {
   "name": "test-restart",
   "version": "1.0.0",
@@ -5,6 +6,12 @@
   "files": [
     "test_restart.txt"
   ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "restart admin",
+  "license": "ISC",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   }
