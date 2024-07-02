@@ -1,6 +1,6 @@
 {
-  "name": "@newantik/test-restart",
-  "version": "1.0.0",
+  "name": "@sevlad/test-restart",
+  "version": "",
   "description": "A test package to publish to GitHub Packages",
   "main": "index.js",
   "scripts": {
