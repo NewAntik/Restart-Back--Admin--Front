@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Create test_restart.txt file
-        run: echo "This is a test file for restart" > test_restart.txt
-
       - name: Publish to GitHub Packages
         run: npm publish
         env:

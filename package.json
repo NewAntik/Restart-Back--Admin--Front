@@ -2,9 +2,6 @@
   "name": "@newantik/test-restart",
   "version": "1.0.0",
   "description": "A test package to publish to GitHub Packages",
-  "files": [
-    "test_restart.txt"
-  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
