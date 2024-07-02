@@ -1,7 +1,7 @@
 name: Upload File to GitHub Packages
 
 on:
-  workflow_dispatch:  # Triggered manually
+  workflow_dispatch:
 
 jobs:
   upload:
@@ -27,7 +27,7 @@ jobs:
           echo "github_package_Url=${{ secrets.PACKAGES_URL }}" >> ~/.gradle/gradle.properties
 
       - name: Create test.txt
-        run: echo "Hello, world!" > test.txt
+        run: echo "This is a test file. Commit SHA" ${{ github.sha }} > test.txt
 
       - name: Setup JDK 17
         uses: actions/setup-java@v4
