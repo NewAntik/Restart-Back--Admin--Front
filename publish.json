@@ -1,0 +1,11 @@
+{
+  "name": "test-restart",
+  "version": "1.0.0",
+  "description": "A test package to publish to GitHub Packages",
+  "files": [
+    "test_restart.txt"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
