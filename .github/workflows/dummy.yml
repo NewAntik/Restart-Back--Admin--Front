@@ -10,13 +10,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Print project structure
-        run: |
-          ls -R .github/workflows 
-          # Optionally, you can print specific directories or files
-          # Example:
-          # ls -R .github/workflows  
-
       - name: Trigger Action One
-        uses: ./.github/workflows/12345.yml
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/action-one.yml/dispatches \
+            -d '{"ref":"main"}'
 
