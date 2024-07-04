@@ -1,10 +1,7 @@
 name: Action One
 
 on:
-  workflow_run:
-    workflows: ["Actions Orchestrator"]
-    types:
-      - succeeded
+  workflow_dispatch:
 
 jobs:
   dummy_job_one:
