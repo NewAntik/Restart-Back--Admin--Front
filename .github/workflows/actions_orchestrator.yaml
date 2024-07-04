@@ -25,7 +25,7 @@ jobs:
 
       - name: Trigger Action One
         id: action_one
-        uses: ./.github/workflows/action.yaml
+        uses: ./.github/actions/workflows/action-one.yaml
         with:
           environment: ${{ env.ENVIRONMENT }}
 
