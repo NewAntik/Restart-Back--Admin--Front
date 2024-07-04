@@ -34,6 +34,9 @@ jobs:
     needs: trigger_action_one
     if: ${{ success() }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Trigger Action Two
         id: action_two
         uses: ./.github/workflows/action_two.yaml
@@ -45,6 +48,9 @@ jobs:
     needs: trigger_action_two
     if: ${{ success() }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Trigger Action Three
         id: action_three
         uses: ./.github/workflows/action_three.yaml
