@@ -1,0 +1,12 @@
+name: Dummy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  start_orchestrator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Action One
+        uses: ./.github/workflows/action.yaml
+
