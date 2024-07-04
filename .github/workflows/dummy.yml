@@ -10,6 +10,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Print project structure
+        run: |
+          ls -R  # Prints the directory structure recursively
+          # Optionally, you can print specific directories or files
+          # Example:
+          # ls -R .github/workflows  
+
       - name: Trigger Action One
         uses: ./.github/workflows/action.yml
 
