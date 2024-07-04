@@ -2,7 +2,7 @@ name: Action Two
 
 on:
   workflow_run:
-    workflows: ["Actions Orchestrator"]
+    workflows: ["Action One"]
     types:
       - succeeded
 
