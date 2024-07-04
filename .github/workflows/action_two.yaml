@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Actions Orchestrator"]
     types:
-      - completed
+      - succeeded
 
 jobs:
   dummy_job_two:
