@@ -1,10 +1,7 @@
 name: Action Two
 
 on:
-  workflow_run:
-    workflows: ["Action One"]
-    types:
-      - succeeded
+  workflow_dispatch:
 
 jobs:
   dummy_job_two:
