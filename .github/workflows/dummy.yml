@@ -10,6 +10,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Print URLs
+        run: |
+            echo "Triggering workflow dispatch for action-one.yml:"
+            echo "URL: https://api.github.com/repos/${{ github.repository }}/actions/workflows/action-one.yml/dispatches"
+
       - name: Trigger Action One
         run: |
           curl -X POST \
