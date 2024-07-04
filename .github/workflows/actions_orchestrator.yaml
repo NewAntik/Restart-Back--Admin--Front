@@ -15,9 +15,11 @@ jobs:
       - name: Set environment variable
         run: echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
+  trigger_action_one:
+    runs-on: ubuntu-latest
+    needs: start_orchestrator
+    if: ${{ success() }}
+    steps:
       - name: Trigger Action One
         id: action_one
         uses: ./.github/workflows/action_one.yaml
@@ -26,7 +28,7 @@ jobs:
 
   trigger_action_two:
     runs-on: ubuntu-latest
-    needs: start_orchestrator
+    needs: trigger_action_one
     if: ${{ success() }}
     steps:
       - name: Trigger Action Two
