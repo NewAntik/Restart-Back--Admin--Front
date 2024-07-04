@@ -20,9 +20,12 @@ jobs:
     needs: start_orchestrator
     if: ${{ success() }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Trigger Action One
         id: action_one
-        uses: ./.github/workflows
+        uses: ./.github/workflows/action_one.yaml
         with:
           environment: ${{ env.ENVIRONMENT }}
 
