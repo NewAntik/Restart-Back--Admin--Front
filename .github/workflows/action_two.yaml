@@ -1,0 +1,14 @@
+name: Action Two
+
+on:
+  workflow_run:
+    workflows: ["Actions Orchestrator"]
+    types:
+      - completed
+
+jobs:
+  dummy_job_two:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Environment from Action Two
+        run: echo "Running Action Two in ${{ inputs.environment }}"

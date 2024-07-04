@@ -1,0 +1,14 @@
+name: Action Three
+
+on:
+  workflow_run:
+    workflows: ["Actions Orchestrator"]
+    types:
+      - completed
+
+jobs:
+  dummy_job_three:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Environment from Action Three
+        run: echo "Running Action Three in ${{ inputs.environment }}"

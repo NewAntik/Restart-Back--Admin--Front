@@ -32,12 +32,9 @@ publishing {
 		mavenJava(MavenPublication) {
 			pom {
 				groupId = 'restart.admin'
-				artifactId = 'restart.admin'
-				version = 'restart.admin'
+				artifactId = 'test'
+				version = 'test'
 			}
-//			artifact('test.txt') {
-//				extension = 'txt'
-//			}
 		}
 	}
 	repositories {
